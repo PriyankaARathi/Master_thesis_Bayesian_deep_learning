@@ -55,13 +55,13 @@ for learning_rate in lr:
                 scaler = MinMaxScaler(feature_range=(0, 1))
 
                 #Prepare training data
-                train_data = pd.read_csv("data/wrds_SP500_train.csv")
+                train_data = pd.read_csv("data/close_data/wrds_SP500_train.csv")
                 scaled_data = scaler.fit_transform(train_data['Close'].values.reshape(-1, 1))
                 x_train, y_train = x_y_split(scaled_data)
 
                 # Prepare validation/test data
                 if Val == False:
-                    test_data = pd.read_csv("data/wrds_SP500_test.csv")
+                    test_data = pd.read_csv("data/close_data/wrds_SP500_test.csv")
                     scaled_test_data = scaler.transform(test_data['Close'].values.reshape(-1, 1))
                     x_test, y_test = x_y_split(scaled_test_data)
                 else:
